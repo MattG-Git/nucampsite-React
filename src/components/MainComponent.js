@@ -9,6 +9,7 @@ import { PARTNERS } from '../shared/partners';
 import { PROMOTIONS } from '../shared/promotions';
 import Home from './HomeComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import About from './AboutComponent';
 import Contact from './ContactComponent';
 
 
@@ -52,6 +53,7 @@ class Main extends Component {
                 <Switch>
                     <Route path='/home' component={HomePage} />
                     <Route exact path='/contactus' component={Contact} />
+                    <Route exact path ='/aboutus' render={ () =>  <About partners={this.state.partners} />} />
                     <Route path='/directory/:campsiteId' component={CampsiteWithId} />
                     <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites} />} />
                     <Redirect to='/home' />
